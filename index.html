@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>NGO Project</title>
+    <meta charset="utf-8">
+  </head>
+  <link rel="stylesheet" href="style.css">
+  <script>
+  function ImageButton(self){
+    if(self.name ==='first'){
+      document.querySelector('.MainImage').src='second project.PNG';
+      document.querySelector('.ImageLink').href='Project_2.html';
+      self.name ='second';
+    }else if(self.name ==='second'){
+     document.querySelector('.MainImage').src='third project.PNG';
+     document.querySelector('.ImageLink').href='Project_3.html';
+     self.name ='third';
+    }else{
+     document.querySelector('.MainImage').src='FIRST PROJECT.PNG';
+     document.querySelector('.ImageLink').href='project_1.html';
+     self.name ='first';
+    }
+  }
+  function BackImageButton(){
+    if(document.querySelector('#NextImage').name ==='first'){
+      document.querySelector('.MainImage').src='third project.PNG';
+      document.querySelector('.ImageLink').href='Project_3.html';
+      document.querySelector('#NextImage').name ='third';
+    }else if(document.querySelector('#NextImage').name ==='second'){
+     document.querySelector('.MainImage').src='FIRST PROJECT.PNG';
+     document.querySelector('.ImageLink').href='Project_1.html';
+     document.querySelector('#NextImage').name ='first';
+    }else{
+     document.querySelector('.MainImage').src='second project.PNG';
+     document.querySelector('.ImageLink').href='project_2.html';
+     document.querySelector('#NextImage').name ='second';
+    }
+  }
+  </script>
+  <body>
+    <h1>
+        제목 미정
+    </h1>
+    <a href="index.html">
+      <img class=logo src="logo.png" width="150px" >
+    </a>
+    <span class="ongoing">
+      진행중인 프로젝트
+    </span>
+    <a class="support" href="support.html">
+      후원하기
+    </a>
+      <a class='ImageLink'href="project_1.html">
+        <img class="MainImage" src="FIRST PROJECT.PNG" width=100% height="100%" >
+      </a>
+    <input id=NextImage type="button" name="first"value="다음" onclick="
+    ImageButton(this);
+    ">
+    <input id=BackImage type="button" value="이전" onclick="
+    BackImageButton();
+    ">
+  </body>
+</html>
