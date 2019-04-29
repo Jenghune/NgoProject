@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NGO Project</title>
+  </head>
+  <link rel="stylesheet" href="style.css">
+  <body>
+    <div class="Logo">
+      다름과 존중
+    </div>
+    <div class="DonateBox">
+      <div class="BoxColor"></div>
+      <a href="#none"class="Donate">
+        후원하기
+      </a>
+    </div>
+    <input id=toggle type="checkbox">
+    <label class="Menu" for=toggle>
+      <div class="MenuLine" id="MenuLine1"></div>
+      <div class="MenuLine" id="MenuLine2"></div>
+      <div class="MenuLine" id="MenuLine3"></div>
+    </label>
+    <div class="Menulistbox">
+      <ul class="Menulist">
+          <li><a href="#none">다름과 존중</a></li>
+          <li><a href="#none">모든 프로젝트</a></li>
+          <li><a href="#none">후원 안내</a></li>
+      </ul>
+    </div>
+    <div class="SlideBox">
+      <div class="title">
+        <div>베트남 아이들의 꿈을 키워주는 NGO 설립에 함께해주세요!</div>
+        <div>두번째 프로젝트</div>
+        <div>세번째 프로젝트</div>
+      </div>
+      <div class="AllImage">
+        <img src="1.jpg">
+        <img src="3.jpg">
+        <img src="2.jpg">
+      </div>
+      <a class="NextBtn" name="first" href="#none"style="color:white" onclick="right(this);">></a>
+      <a class="PreviousBtn" href="#none" style="color:white" onclick="left();"><</a>
+    </div>
+  </body>
+  <script>
+  // make image size
+    var Width = document.body.clientWidth;
+    var Height = window.innerHeight;
+    var ImgLength=document.querySelectorAll(".AllImage img").length
+    var ImgList=document.querySelectorAll(".AllImage img")
+    document.querySelector(".SlideBox").style.width=Width+'px';
+    document.querySelector(".SlideBox").style.height=Height+'px';
+    // document.querySelector(".SlideBox").style.height=height;
+    document.querySelector(".AllImage").style.width=(Width*3)+'px';
+    for (var i=0; i<ImgLength; i++) {
+      ImgList[i].style.width=Width+"px";
+      ImgList[i].style.height=Height+"px";
+    }
+    document.querySelector('.title').style.width=(Width*3)+'px';
+    //slide
+     function right(self){
+       if (self.name==='first') {
+         document.querySelector(".AllImage").style.marginLeft='-'+Width+'px';
+         document.querySelector(".title").style.marginLeft='-'+Width+'px';
+         self.name='second';
+       }else if (self.name==='second') {
+         document.querySelector(".AllImage").style.marginLeft='-'+(Width*2)+'px';
+         document.querySelector(".title").style.marginLeft='-'+(Width*2)+'px';
+         self.name='third';
+       }
+     }
+     function left(){
+       var imgnum = document.querySelector(".SlideBox a");
+       if (imgnum.name==='second') {
+         document.querySelector(".AllImage").style.marginLeft='0px';
+         document.querySelector(".title").style.marginLeft='0px';
+         imgnum.name='first';
+       }else if (imgnum.name==='third') {
+         document.querySelector(".AllImage").style.marginLeft='-'+Width+'px';
+         document.querySelector(".title").style.marginLeft='-'+Width+'px';
+           imgnum.name='second';
+         }
+    }
+  </script>
+</html>
