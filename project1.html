@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ProjectPage</title>
+  </head>
+  <style>
+  body{
+    background-color: ;
+    width: auto;
+  }
+  .Logo{
+    color: black;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    font-size: 25px;
+    margin: 20px;
+    padding: 10px;
+    border: solid black;
+    float: left;
+  }
+  .Logo a{
+    text-decoration: none;
+    color: black;
+  }
+    .title{
+      color: black;
+      display: inline-block;
+      text-align: center;
+      padding: 15px;
+      margin: 0;
+      border: solid black;
+      background-color: white;
+      position: absolute;
+      top: 30px;
+      left:50%;
+      transform: translate( -50%);
+      z-index: 3;
+    }
+    .contentbox{
+      width: 100%;
+      z-index: 1;
+    }
+    .content{
+      position: absolute;
+      top: 765px;
+      left:50%;
+      transform: translate( -50%);
+      width: 60%;
+    }
+    /* --------------후원 버튼---------------- */
+    .DonateBox{
+      position: fixed;
+        right: 4%;
+        bottom: 5%;
+      display: inline-block;
+      width: 100px;
+      height: 40px;
+      border-radius: 10px;
+      border: #34495e solid;
+      z-index: 2;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    p{
+      color: #34495e;
+      font-weight: bold;
+      position: absolute;
+      display: inline-block;
+      text-align: center;
+      font-size: 20px;
+      width: 100px;
+      margin: 0;
+      text-decoration: none;
+      top:50%; left:50%;
+      transform: translate(-50%, -50%);
+      transition: 0.5s;
+    }
+    .BoxColor{
+      position: absolute;
+      right: 100px;
+      width: 100px;
+      height: 50px;
+      background-color: #34495e;
+      transition: 0.2s;
+    }
+    .DonateBox:hover>.BoxColor{
+      right: 0;
+    }
+    .DonateBox:hover>p{
+      color: white;
+    }
+    .DonateBox:hover{
+      border-color: white;
+    }
+    /*---------------후원 버튼 끝------------------- */
+    /* -------------------후원페이지------------- */
+    #donate-toggle{
+      display: none;
+    }
+    .donateimg{
+      position: fixed;
+      top:0;
+      height: 100%;
+      width: 100%;
+      overflow-y: scroll;
+      opacity: 0;
+      transition: 0.5s  ;
+      z-index: -1;
+    }
+    .donateimg img{
+      position: absolute;
+      height: 140%;
+      left: 50%;
+      transform: translate(-50%,0);
+      transition: 0.5;
+    }
+    .xbtn{
+      opacity: 0;
+      transition: 0.1s;
+    }
+    .xbox{
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      right: 565px;
+      border-radius: 5px;
+      top: 0px;
+      cursor: pointer;
+      transition: 0.5s;
+      z-index: 6  ;
+    }
+    .xbox::before {
+        content: "";
+        width: 5px;
+        height: 30px;
+        background-color: black;
+        position: absolute;
+        transform: rotate(-45deg);
+        left: 12px;
+      }
+      .xbox::after {
+        content: "";
+        width: 5px;
+        height: 30px;
+        position: absolute;
+        background-color: black;
+        transform: rotate(45deg);
+        left: 12px;
+    }
+    #donate-toggle:checked ~ .donateimg{
+      opacity: 1;
+      z-index: 5;
+      background-color: rgba(192,192,192,0.7);
+    }
+    #donate-toggle:checked ~ .xbtn{
+      opacity: 1;
+    }
+    /* -----------------후원페이지끝------------- */
+
+    /*------------menu-----------*/
+    .Menu{
+      position: fixed;
+        top: 5%;
+        right: 5%;
+      display: inline-block;
+      width: 36px;
+      height: 34PX;
+      cursor: pointer;
+      z-index: 4;
+    }
+    .MenuLine{
+      width: 35px;
+      height: 5px;
+      background-color: black;
+      margin: 6px 0;
+      transition: 0.5s;
+      border-radius: 20px;
+    }
+    .Menulistbox{
+      position: fixed;
+      top:0;
+      right:-25%;
+      background-color: #90d5eb;
+      width: 25%;
+      height:100%;
+      padding: 0;
+      margin: 0;
+      transition: 0.5s;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+      z-index: 3;
+    }
+    .Menulist{
+      position: absolute;
+      padding: 0px;
+      width: 80%;
+      margin: 0;
+      border-radius: 8%;
+      list-style: none;
+      text-align: center;
+      top:50%; left:50%;
+      transform: translate(-35%, -60%);
+    }
+    .Menulist a{
+      width: 70%;
+      margin: 35px 0px;
+      padding: 10px;
+      display: inline-block;
+      color: #005c9c;
+      font-weight: bold;
+      border-bottom: solid #005c9c ;
+      /* border-bottom: solid white;
+       border-top: solid white; */
+      text-decoration: none;
+      font-size: 25px;
+      transition: 0.5s;
+    }
+    #toggle{
+      display: none;
+    }
+    #toggle:checked ~ .Menulistbox{
+      right: 0%;
+    }
+    #toggle:checked ~ .Menu>#MenuLine1{
+      background-color: #005c9c;
+      width: 20px;
+      margin:0px 0 0 18px;
+      transform: rotate(45deg);
+    }
+     #toggle:checked ~ .Menu>#MenuLine2{
+      margin: 0;
+      background-color: #005c9c;
+    }
+    #toggle:checked ~ .Menu>#MenuLine3{
+      width: 20px;
+      margin: 0 0 0px 18px;
+      transform: rotate(-45deg);
+      background-color: #005c9c;
+    }
+    .Menulist a:hover{
+      color: white;
+      border-bottom: solid white ;
+    }
+    .video{
+      position: absolute;
+      left:50%;
+      top: 220px;
+      transform: translate(-50%, 0%);
+    }
+    .header{
+      height: 200px;
+      border-bottom: solid 3px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="header">
+      <div class="Logo">
+        <a href="index.html">다름과 존중</a>
+      </div>
+      <h1 class="title">베트남 아이들의 꿈을 키워주는 NGO 설립에 함께해주세요!</h1>
+    </div>
+    <div class="video">
+      <iframe width="1000" height="500" src="https://www.youtube.com/embed/HkqtOREJX_A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <img class="content"src="Project1.JPG">
+    <input id=toggle type="checkbox">
+    <label class="Menu" for=toggle>
+      <div class="MenuLine" id="MenuLine1"></div>
+      <div class="MenuLine" id="MenuLine2"></div>
+      <div class="MenuLine" id="MenuLine3"></div>
+    </label>
+    <div class="Menulistbox">
+      <ul class="Menulist">
+          <li><a href="#none">다름과 존중</a></li>
+          <li><a href="AllProject.html">모든 프로젝트</a></li>
+          <li><a href="#none">후원 안내</a></li>
+      </ul>
+    </div>
+    <input id=donate-toggle type="checkbox">
+    <label for=donate-toggle>
+      <div class="DonateBox">
+        <div class="BoxColor"></div>
+        <p>
+          후원하기
+        </p>
+      </div>
+    </label>
+    <label class= xbtn for=donate-toggle>
+      <div class="xbox"></div>
+    </label>
+    <div class="donateimg">
+      <img src="donate.jpg" >
+    </div>
+  </body>
+</html>
